@@ -1,4 +1,4 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.gui;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -10,6 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.amal.nodelogin.App;
+import com.amal.nodelogin.R;
+import com.amal.nodelogin.model.server.request.Credentials;
+import com.amal.nodelogin.model.server.request.Email;
+import com.amal.nodelogin.model.server.request.ResetPassChgRequest;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

@@ -1,4 +1,4 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.gui;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

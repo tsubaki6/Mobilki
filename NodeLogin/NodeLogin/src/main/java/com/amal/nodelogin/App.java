@@ -7,6 +7,11 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.amal.nodelogin.gui.SettingsActivity;
+import com.amal.nodelogin.model.rest.GoogleRouteApi;
+import com.amal.nodelogin.model.rest.ServiceGenerator;
+import com.amal.nodelogin.model.rest.UserApi;
+
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

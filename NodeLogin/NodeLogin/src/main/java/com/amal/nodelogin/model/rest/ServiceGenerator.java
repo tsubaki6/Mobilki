@@ -1,8 +1,11 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.model.rest;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
+import com.amal.nodelogin.gui.SettingsActivity;
+import com.amal.nodelogin.model.gson.GsonInstance;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

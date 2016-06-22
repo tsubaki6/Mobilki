@@ -1,4 +1,4 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.model.rest;
 
 import android.net.Uri;
 

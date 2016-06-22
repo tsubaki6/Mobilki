@@ -1,4 +1,12 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.model.rest;
+
+import com.amal.nodelogin.model.server.request.ChgPassRequest;
+import com.amal.nodelogin.model.server.request.Credentials;
+import com.amal.nodelogin.model.server.request.Email;
+import com.amal.nodelogin.model.server.request.ResetPassChgRequest;
+import com.amal.nodelogin.model.server.response.LoginResponse;
+import com.amal.nodelogin.model.server.response.ResetPasswordResponse;
+import com.amal.nodelogin.model.server.response.ServerResponse;
 
 import retrofit2.http.Body;
 import retrofit2.http.POST;

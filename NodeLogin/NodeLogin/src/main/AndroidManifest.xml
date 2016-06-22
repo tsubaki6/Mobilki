@@ -19,7 +19,7 @@
             android:value="@string/google_api_key"/>
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".gui.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -28,15 +28,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".gui.RegisterActivity"
             android:label="Node Reister">
         </activity>
         <activity
-            android:name=".ProfileActivity"
+            android:name=".gui.ProfileActivity"
             android:label="Node Profile">
         </activity>
         <activity
-            android:name=".MapsActivity"
+            android:name=".gui.MapsActivity"
             android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -50,7 +50,7 @@
             android:value="@integer/google_play_services_version"/>
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".gui.SettingsActivity"
             android:label="@string/title_activity_settings">
         </activity>
     </application>

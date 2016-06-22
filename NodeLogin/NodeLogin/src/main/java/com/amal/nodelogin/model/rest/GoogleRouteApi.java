@@ -1,6 +1,6 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.model.rest;
 
-import com.amal.nodelogin.model.GoogleRoutesResponse;
+import com.amal.nodelogin.model.route.GoogleRoutesResponse;
 
 import retrofit2.http.GET;
 import retrofit2.http.Url;

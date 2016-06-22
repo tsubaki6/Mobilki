@@ -1,4 +1,4 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.model.gson;
 
 /*
  * Copyright (C) 2011 Google Inc.

@@ -1,4 +1,4 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.model.gson;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.JsonDeserializationContext;

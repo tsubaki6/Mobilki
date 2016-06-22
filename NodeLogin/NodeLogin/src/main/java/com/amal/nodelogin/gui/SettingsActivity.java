@@ -1,9 +1,11 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.gui;
 
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
+
+import com.amal.nodelogin.R;
 
 public class SettingsActivity extends AppCompatPreferenceActivity {
 

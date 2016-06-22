@@ -1,5 +1,6 @@
 package com.amal.nodelogin;
 
+import com.amal.nodelogin.model.gson.GsonInstance;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 

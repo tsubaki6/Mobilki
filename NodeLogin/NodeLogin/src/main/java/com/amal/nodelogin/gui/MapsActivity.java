@@ -1,4 +1,4 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.gui;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -17,8 +17,10 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.amal.nodelogin.model.GoogleRoutesResponse;
-import com.amal.nodelogin.model.Route;
+import com.amal.nodelogin.App;
+import com.amal.nodelogin.R;
+import com.amal.nodelogin.model.route.GoogleRoutesResponse;
+import com.amal.nodelogin.model.route.Route;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;

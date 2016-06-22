@@ -1,4 +1,4 @@
-package com.amal.nodelogin;
+package com.amal.nodelogin.model.server.request;
 
 /**
  * Created by adrian on 21/06/16.

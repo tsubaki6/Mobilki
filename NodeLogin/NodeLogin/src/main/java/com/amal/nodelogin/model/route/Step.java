@@ -1,5 +1,5 @@
 
-package com.amal.nodelogin.model;
+package com.amal.nodelogin.model.route;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.annotations.Expose;
