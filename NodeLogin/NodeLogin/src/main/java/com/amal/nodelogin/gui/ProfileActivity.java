@@ -59,6 +59,7 @@ public class ProfileActivity extends AppCompatActivity {
         edit.putString("token", "");
         edit.commit();
         Intent loginactivity = new Intent(ProfileActivity.this, LoginActivity.class);
+        loginactivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         startActivity(loginactivity);
         finish();
