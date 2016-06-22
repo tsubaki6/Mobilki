@@ -1,5 +1,6 @@
 package com.amal.nodelogin;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -26,6 +27,7 @@ public class GsonInstance {
 //                        .registerSubtype(ResetPasswordResponse.class);
         GsonBuilder gb = new GsonBuilder();
 //        gb.registerTypeAdapterFactory(serverRespAdapter);
+        gb.registerTypeAdapter(LatLng.class, new LatLngTypeAdapter());
 
         return gb;
     }
