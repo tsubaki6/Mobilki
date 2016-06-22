@@ -8,4 +8,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="server_url">Adres serwera</string>
+    <string name="server_url_summary">Podaj adres serwera w postaci localhost:8080</string>
+    <string name="title_activity_settings">Ustawienia</string>
 </resources>

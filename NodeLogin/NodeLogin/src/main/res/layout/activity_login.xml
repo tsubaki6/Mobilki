@@ -8,63 +8,60 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="fill_parent"
-        android:layout_height="100px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
         android:background="#5ba4e5"
-        android:layout_gravity="center"
         android:src="@drawable/logo" />
 
     <EditText
-        android:layout_width="440px"
-        android:layout_height="80px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30px"
+        android:layout_marginTop="15dp"
         android:id="@+id/email"
         android:hint="example@mail.com"/>
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="440px"
-        android:layout_gravity="center"
-        android:layout_height="80px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="******"/>
 
     <Button
-        android:layout_width="440px"
-        android:layout_height="80px"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/loginbtn"
         android:background="@drawable/btn_back"
         android:textColor="#ffffff"
-        android:textAlignment="center"
         android:text="Login"/>
+
     <LinearLayout
-        android:layout_width="440px"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10px"
-        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:orientation="horizontal" >
 
 
 
         <Button
-            android:layout_width="215px"
-            android:layout_height="80px"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/register"
             android:background="@drawable/btn_blue_back"
             android:textColor="#ffffff"
-            android:textAlignment="center"
-            android:text="Register"/>
+            android:text="Register"
+            android:layout_weight="1"/>
         <Button
-            android:layout_width="215px"
-            android:layout_height="80px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/forgotpass"
-            android:layout_marginLeft="10px"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/btn_red_back"
+            android:layout_weight="1"
             android:textColor="#ffffff"
-            android:textAlignment="center"
             android:text="Forgot Password"/>
 
 
