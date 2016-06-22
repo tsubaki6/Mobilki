@@ -1,11 +1,14 @@
 package com.amal.nodelogin.gui;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,22 +20,29 @@ import com.amal.nodelogin.model.server.request.Credentials;
 import com.amal.nodelogin.model.server.request.Email;
 import com.amal.nodelogin.model.server.request.ResetPassChgRequest;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
     EditText email, password, res_email, code, newpass;
     Button login, cont, cont_code, cancel, cancel1, register, forpass;
     String emailtxt, passwordtxt, email_res_txt, code_txt, npass_txt;
     SharedPreferences pref;
     Dialog reset;
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
+        toolbar.setLogo(R.drawable.logo);
+        setTitle(null);
 
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
@@ -43,6 +53,21 @@ public class LoginActivity extends Activity {
         pref = getSharedPreferences("AppPref", MODE_PRIVATE);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.login, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @OnClick(R.id.loginbtn)
     public void onLoginClick() {

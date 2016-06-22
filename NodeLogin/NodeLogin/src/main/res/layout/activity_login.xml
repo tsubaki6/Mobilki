@@ -6,13 +6,9 @@
               android:background="#e9e8dd"
               tools:context=".gui.LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:background="#5ba4e5"
-        android:src="@drawable/logo" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <EditText
         android:layout_width="match_parent"

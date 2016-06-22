@@ -1,10 +1,11 @@
 package com.amal.nodelogin.gui;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -15,11 +16,12 @@ import com.amal.nodelogin.App;
 import com.amal.nodelogin.R;
 import com.amal.nodelogin.model.server.request.ChgPassRequest;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class ProfileActivity extends Activity {
+public class ProfileActivity extends AppCompatActivity {
 
     SharedPreferences pref;
     String token, grav, oldpasstxt, newpasstxt;
@@ -28,11 +30,15 @@ public class ProfileActivity extends Activity {
     Dialog dlg;
     EditText oldpass, newpass;
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
         web = (WebView) findViewById(R.id.webView);
         chgpass = (Button) findViewById(R.id.chgbtn);
         logout = (Button) findViewById(R.id.logout);
