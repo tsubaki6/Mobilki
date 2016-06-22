@@ -20,10 +20,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.amal.nodelogin.App;
 import com.amal.nodelogin.R;
 import com.amal.nodelogin.model.route.GoogleRoutesResponse;
@@ -53,6 +55,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private static final int ASK_LOC = 1;
     private ArrayList<LatLng> latlng = new ArrayList<LatLng>();
+    private Route route;
     private String apiKey;
     ;
     private GoogleMap mMap;
@@ -145,6 +148,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case ASK_LOC: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    mMap.setMyLocationEnabled(true);
+                    LocationServices.FusedLocationApi.requestLocationUpdates(client, locationRequest, this);
+                } else {
+                    Toast.makeText(this, "Give me permission!!", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            }
+        }
+    }
+
+    @Override
     public void onMapClick(LatLng point) {
         Log.d("DEBUG", "Map clicked [" + point.latitude + " / " + point.longitude + "]");
         mMap.addMarker(new MarkerOptions()
@@ -174,7 +192,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void handleRouteApiResponse(GoogleRoutesResponse resp) {
         if (resp.getRoutes().isEmpty()) return;
-        Route route = resp.getRoutes().get(0);
+        route = resp.getRoutes().get(0);
         String encodedPolyline = route.getOverviewPolyline().getPoints();
 
         List<LatLng> list = decodePoly(encodedPolyline);
@@ -293,11 +311,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @OnClick(R.id.add_route)
     public void onAddRouteClick() {
+        new MaterialDialog.Builder(this)
+                .title(R.string.dialog_add_route_title)
+                .inputType(InputType.TYPE_CLASS_TEXT)
+                .input(R.string.dialog_add_route_name_hint, 0, this::handleAddRoute).show();
+    }
+
+    public void handleAddRoute(MaterialDialog dialog, CharSequence name) {
         if (latlng.size() <= 1) {
             Snackbar.make(toolbar, "Add more points", Snackbar.LENGTH_SHORT).show();
             return;
         }
-        //TODO: Save route
+        com.amal.nodelogin.model.db.Route.from(route, latlng, name.toString()).save();
         latlng.clear();
         mMap.clear();
         addRouteButton.hide();

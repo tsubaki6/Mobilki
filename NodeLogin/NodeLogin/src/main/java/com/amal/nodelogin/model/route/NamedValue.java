@@ -11,7 +11,7 @@ public class NamedValue {
     private String text;
     @SerializedName("value")
     @Expose
-    private Integer value;
+    private Long value;
 
     /**
      * @return The text
@@ -30,14 +30,14 @@ public class NamedValue {
     /**
      * @return The value
      */
-    public Integer getValue() {
+    public Long getValue() {
         return value;
     }
 
     /**
      * @param value The value
      */
-    public void setValue(Integer value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 

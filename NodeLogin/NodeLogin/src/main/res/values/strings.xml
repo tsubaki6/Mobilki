@@ -17,4 +17,6 @@
     <string name="routes">Trasy</string>
     <string name="open">Otwórz</string>
     <string name="close">Zamknij</string>
+    <string name="dialog_add_route_title">Dodaj trasę</string>
+    <string name="dialog_add_route_name_hint">Nazwa</string>
 </resources>

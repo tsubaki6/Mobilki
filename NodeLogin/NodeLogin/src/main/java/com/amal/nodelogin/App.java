@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.activeandroid.ActiveAndroid;
 import com.amal.nodelogin.gui.SettingsActivity;
 import com.amal.nodelogin.model.rest.GoogleRouteApi;
 import com.amal.nodelogin.model.rest.ServiceGenerator;
@@ -32,6 +33,7 @@ public class App extends Application implements SharedPreferences.OnSharedPrefer
     public void onCreate() {
         super.onCreate();
         instance = this;
+        ActiveAndroid.initialize(this);
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
 
     }
