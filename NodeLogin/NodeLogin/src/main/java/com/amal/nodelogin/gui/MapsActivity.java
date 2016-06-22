@@ -12,7 +12,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -44,6 +46,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import rx.Subscription;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleApiClient.ConnectionCallbacks, LocationListener, GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener {
@@ -63,6 +66,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     NavigationView navigationView;
     @BindView(R.id.drawer)
     DrawerLayout drawerLayout;
+    @BindView(R.id.add_route)
+    FloatingActionButton addRouteButton;
+    @BindView(R.id.cancel_route)
+    FloatingActionButton cancelRouteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,6 +151,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(point.latitude, point.longitude)));
         latlng.add(point);
         if (latlng.size() <= 1) return;//One point is not enough to draw a polyline
+        addRouteButton.show();
+        cancelRouteButton.show();
 
         String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + latlng.get(0).latitude + "," + latlng.get(0).longitude + "&destination=" + latlng.get(1).latitude + "," + latlng.get(1).longitude + "&key=" + apiKey + "&mode=walking";
         if (latlng.size() > 2) {
@@ -280,5 +289,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             return true;
         }
         return false;
+    }
+
+    @OnClick(R.id.add_route)
+    public void onAddRouteClick() {
+        if (latlng.size() <= 1) {
+            Snackbar.make(toolbar, "Add more points", Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+        //TODO: Save route
+        latlng.clear();
+        mMap.clear();
+        addRouteButton.hide();
+        cancelRouteButton.hide();
+        Snackbar.make(toolbar, "Saved", Snackbar.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.cancel_route)
+    public void onCancelRouteClick() {
+        latlng.clear();
+        mMap.clear();
+        addRouteButton.hide();
+        cancelRouteButton.hide();
     }
 }
