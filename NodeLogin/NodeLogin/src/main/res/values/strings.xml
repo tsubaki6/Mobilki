@@ -11,4 +11,5 @@
     <string name="server_url">Adres serwera</string>
     <string name="server_url_summary">Podaj adres serwera w postaci localhost:8080</string>
     <string name="title_activity_settings">Ustawienia</string>
+    <string name="play_services_connect_err">Unable to connect to play services</string>
 </resources>
