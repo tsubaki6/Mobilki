@@ -20,6 +20,7 @@ public class App extends Application implements SharedPreferences.OnSharedPrefer
 
     private ServiceGenerator serviceGenerator;
     private UserApi userApi;
+    private GoogleRouteApi routeApi;
 
     @Override
     public void onCreate() {
@@ -40,6 +41,11 @@ public class App extends Application implements SharedPreferences.OnSharedPrefer
     public UserApi getUserApi() {
         if (userApi == null) userApi = getServiceGenerator().createService(UserApi.class);
         return userApi;
+    }
+
+    public GoogleRouteApi getRouteApi() {
+        if (routeApi == null) routeApi = getServiceGenerator().createService(GoogleRouteApi.class);
+        return routeApi;
     }
 
     @Override
