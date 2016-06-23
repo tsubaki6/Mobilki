@@ -15,6 +15,8 @@ import butterknife.ButterKnife;
 
 public class RoutesActivity extends AppCompatActivity implements RoutesListFragment.RoutesListInteraction {
 
+    private final String TAG = getClass().getName();
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
@@ -45,6 +47,9 @@ public class RoutesActivity extends AppCompatActivity implements RoutesListFragm
     @Override
     public void onRouteSelected(Route route) {
         Log.d(getClass().getName(), route.toString());
-        //TODO: Open details view
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.fragment_container, RouteDetailsFragment.newInstance(route.getId()))
+                .addToBackStack(TAG)
+                .commit();
     }
 }

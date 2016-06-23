@@ -19,4 +19,8 @@
     <string name="close">Zamknij</string>
     <string name="dialog_add_route_title">Dodaj trasę</string>
     <string name="dialog_add_route_name_hint">Nazwa</string>
+    <string name="name">Nazwa</string>
+    <string name="distance">Dystans</string>
+    <string name="time">Czas</string>
+    <string name="map">Mapa</string>
 </resources>
