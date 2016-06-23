@@ -16,6 +16,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -302,11 +303,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         int itemId = item.getItemId();
         if (itemId == R.id.profile) {
             startActivity(new Intent(this, ProfileActivity.class));
-            return true;
         } else if (itemId == R.id.routes) {
-            return true;
+            startActivity(new Intent(this, RoutesActivity.class));
         }
-        return false;
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     @OnClick(R.id.add_route)
